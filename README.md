@@ -4,7 +4,7 @@ A template to quick start dataviz projects
 
 The visualisation must start with a logo, and the title.
 
-A typical dataviz is one page only, 960px width.
+A typical dataviz is one page only, 750px width.
 And kept as simple as possible.
 
 The color scheme is given and must be kept simple.
