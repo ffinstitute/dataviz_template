@@ -1,37 +1,15 @@
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<title>Dataviz title</title>
-
-<!-- Bootstrap core CSS -->
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="css/jquery-ui.css" rel="stylesheet">
-
-<link href="./css/d3.css" rel="stylesheet">
-<!-- Font awesome -->
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="alert alert-info fade in" role="alert">
+<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+This is a little description to get started  (in case you need one)
+</div>
 
 
-<script src="./js/jquery.min.js"></script>
-<script src="./js/bootstrap.js"></script>
-<script src="./js/d3.v3.min.js"></script>
-<script src="./js/main.js"></script>
-
-</head>
-
-<body>
-
-<div class='container bs-docs-container'>
-
-
-<div class="row" id='part1'>
-<h2><img src='img/logo_ffi300px.png'> Dataviz name</h2>
 <div class="col-sm-4" id='sliders'>
 
 <!-- Curve 1 params -->
 <h3>
-Example 1
+Curve 1
 <div class="btn-group pull-right" data-toggle="buttons">
 <label class="btn btn-default" title='Graph B1 as bars' data-toggle="tooltip" data-placement="top" title="Tooltip on top">
 <input type="radio" name="rad1" value="bar"><i class="fa fa-bar-chart" style='color:#c00'></i>&nbsp;
@@ -58,7 +36,7 @@ Example 1
 
 <!-- Curve 2 params -->
 <h3>
-Binomial 2
+Curve 2
 <div class="btn-group pull-right" data-toggle="buttons">
 <label class="btn btn-default active" title='Graph B2 as bars'>
 <input type="radio" name="rad2" value="bar" checked><i class="fa fa-bar-chart" style='color:#999'></i>&nbsp;
@@ -80,21 +58,11 @@ Binomial 2
 <div id="n2"></div>
 </div>
 
-
 </div>
+
 <div class="col-sm-8" id='graph1'>
 <!-- D3 Graph -->
 </div>
 
 </div>
 
-<div class="alert alert-warning fade in" role="alert">
-<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-Set the desired values for <i>n</i> (number of events) and <i>p</i> (probability of success on a single event) using the sliders
-</div>
-
-
-</div>
-
-</body>
-</html>
