@@ -16,3 +16,5 @@ All required files (scripts, css, etc) must be contained in the project.
 
 
 Each project must contain a thumbnail.png file, that reflect the appearance of the dataviz, to display in the dataviz gallery.
+
+![thumbnail](img/thumbnail.png)
