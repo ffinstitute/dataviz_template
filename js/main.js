@@ -1,6 +1,5 @@
+// Dataviz template
 
-// binomial distribution presentation
-// part 1
 
 var color=d3.scale.category20c();
 
@@ -158,137 +157,6 @@ function update() {
     b1.exit().remove(); 
     
 
-    var b2= svg.selectAll(".bar2").data(data);
-
-    if ($("input[name='rad2']:checked").val()=="bubble") {
-    
-        b2.enter().append("circle")
-            .attr("class", "bar2")
-            .attr("fill", color2 )
-            //.attr("opacity", 0.5) 
-            .attr("cx", function(d,i) { return x(i); })
-            .attr("cy", function(d) { return 200; })
-            .attr("r", 1)
-            .on("mouseover", mouseover)
-            .on("mousemove", mm1)
-            .on("mouseout", mouseout);
-        
-        b2.transition(500)
-            .attr("cx", function(d,i) { return x(i); })
-            .attr("cy", function(d) { return y1(d.p2); })
-            .attr("r", function(d,i){return Math.max(2,width/4/data.length);});
-
-    } else {
-        
-        b2.enter().append("rect")
-            .attr("class", "bar2")
-            .attr("fill", color2 )
-            .attr("opacity", 0.5) 
-            .attr("x", function(d,i) { return x(i); })
-            .attr("y", function(d) { return 200; })
-            .attr("width", 1)
-            .attr("height", 1 )
-            .on("mouseover", mouseover)
-            .on("mousemove", mm1)
-            .on("mouseout", mouseout);
-        
-        b2.transition(500)
-            .attr("x", function(d,i) { return x(i)-width/4/data.length; })
-            .attr("y", function(d) { return y1(d.p2); })
-            .attr("width", function(d,i){return width/2/data.length;})
-            .attr("height", function(d){ return 200 - y1(d.p2); } );
-    }
-
-    b2.exit().remove(); 
-
-    
-
-
-    // cumulated values
-    // cumul 1
-    var c1= svg.selectAll(".c1").data(data);
-
-    if ($("input[name='rad1']:checked").val()=="bubble") {
-    
-        c1.enter().append("circle")
-            .attr("class", "c1")
-            .attr("fill", color1 )
-            .attr("cx", function(d,i) { return x(i); })
-            .attr("cy", function(d) { return 400; })
-            .attr("r", 0)
-            .on("mouseover", mouseover)
-            .on("mousemove", mm2)
-            .on("mouseout", mouseout);
-
-        c1.transition(500)
-            .attr("cx", function(d,i) { return x(i); })
-            .attr("cy", function(d) { return y2(d.c1); })
-            .attr("r", function(d){ return Math.max(2,width/4/data.length) } );
-    } else {
-        c1.enter().append("rect")
-            .attr("class", "c1")
-            .attr("fill", color1 )
-            .attr("x", function(d,i) { return x(i); })
-            .attr("y", function(d) { return 400; })
-            .attr("width", 0)
-            .attr("height", 0)
-            .on("mouseover", mouseover)
-            .on("mousemove", mm2)
-            .on("mouseout", mouseout);
-
-        c1.transition(500)
-            .attr("x", function(d,i) { return x(i); })
-            .attr("y", function(d) { return y2(d.c1); })
-            .attr("width", function(){ return width/2/data.length;} )
-            .attr("height", function(d){ return 400 - y2(d.c1); } );
-    }  
-
-    c1.exit().remove();
-
-    // cumul 2
-    var c2= svg.selectAll(".c2").data(data);
-    
-    if($("input[name='rad2']:checked").val()=="bubble"){// bars
-
-        c2.enter().append("circle")
-        .attr("class", "c2")
-        .attr("fill", color2 )
-        .attr("cx", function(d,i) { return x(i); })
-        .attr("cy", function(d) { return 400; })
-        .attr("r", 0)
-        .on("mouseover", mouseover)
-        .on("mousemove", mm2)
-        .on("mouseout", mouseout);
-    
-        c2.transition(500)
-        .attr("cx", function(d,i) { return x(i); })
-        .attr("cy", function(d) { return y2(d.c2); })
-        .attr("r", function(d){ return Math.max(2,width/4/data.length); } );
-
-    } else {// rect
-        
-        c2.enter().append("rect")
-        .attr("class", "c2")
-        .attr("fill", color2 )
-        .attr("opacity", 0.5 )
-        .attr("x", function(d,i) { return x(i); })
-        .attr("y", function(d) { return 400; })
-        .attr("width", 0)
-        .attr("height", 0)
-        .on("mouseover", mouseover)
-        .on("mousemove", mm2)
-        .on("mouseout", mouseout);
-    
-        c2.transition(500)
-        .attr("x", function(d,i) { return x(i)-width/4/data.length; })
-        .attr("y", function(d) { return y2(d.c2); })
-        .attr("width", function(d){ return width/2/data.length; } )
-        .attr("height", function(d){ return 400-y2(d.c2); } );
-
-    }
-
-    c2.exit().remove(); 
-
 }
 
 
@@ -304,31 +172,6 @@ function mouseover(){
     ttdiv.transition().duration(200).style("opacity", 1);
 }
 
-var dod;
-function mm1(d,i){
-    dod=d;
-    var html = "";
-    html+="<b>k = "+i+"</b><br />\n";
-    html+="<hr style='margin-top:4px;margin-bottom:4px' i/>";
-    html+="B1="+Math.round(d.p1*100)/100+"<br />";
-    html+="B2="+Math.round(d.p2*100)/100+"<br />";
-    ttdiv.html( html )
-  .style("left", ttleft )
-  .style("top", (d3.event.pageY + 10 ) + "px");
-}
-
-
-function mm2(d,i){
-    dod=d;
-    var html = "";
-    html+="<b>k = "+i+"</b><br />\n";
-    html+="<hr style='margin-top:4px;margin-bottom:4px' i/>";
-    html+="B1 Cumul. ="+Math.round(d.c1*100)/100+"<br />";
-    html+="B2 Cumul. ="+Math.round(d.c2*100)/100+"<br />";
-    ttdiv.html( html )
-  .style("left", ttleft )
-  .style("top", (d3.event.pageY + 10 ) + "px");
-}
 
 
 function ttleft(){
@@ -353,13 +196,8 @@ function getData(){
 
 
 // form //
-
-$("input[name='rad1']").tooltip();
-$("input[name='rad2']").tooltip();
-
-function updateLabels(){
-    
-}
+//$("input[name='rad1']").tooltip();
+//$("input[name='rad2']").tooltip();
 
 
 $(function() {
@@ -370,4 +208,16 @@ $(function() {
 
     console.info('main.js');
 
+});
+
+var t;
+d3.select(window).on('resize', function(){  
+    
+    clearTimeout(t);
+    t=setTimeout(function()
+    {
+        // all resizable graph should be updated here
+        console.log('resizeEnd');
+        //updateGraph();
+    },500);//update all graph
 });
