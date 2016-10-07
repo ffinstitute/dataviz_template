@@ -24,7 +24,7 @@
 
 <div class='container bs-docs-container'>
 
-	<h1><a href='https://first-finance.institute' target=_blank><img src='img/logo_ffi_48px.png' title='First Finance Institute' width=40></a> Dataviz template</h1>
+	<h1><a href='https://first-finance.institute' target=_blank><img src='img/logo_ffi_48px.png' title='First Finance Institute' width=32 style="vertical-align: top"></a> Dataviz template</h1>
 	<hr />
 	<?php 
 	include "main.php";
